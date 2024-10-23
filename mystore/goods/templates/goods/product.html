@@ -14,16 +14,18 @@
                     <div class="row">
                         <!-- Левая колонка с изображением -->
                         <div class="col-md-4">
-                            <img src="{{product.image.url}}" class="img-thumbnail product-image" data-bs-toggle="modal" data-bs-target="#imageModal1">
+                            <img src="{{product.image.url}}" class="img-thumbnail product-image w-100" style="max-height: 400px; object-fit: cover;" data-bs-toggle="modal" data-bs-target="#imageModal1">
                         </div>
-
+            
                         <!-- Правая колонка с описанием и таблицей -->
                         <div class="col-md-8">
                             <div class="content-section">
                                 <h5 class="product-title">{{product.name}}</h5>
                                 <p class="card-text">Ціна: <strong>{{product.sell_price}} грн</strong></p>
                                 <a href="#" class="btn btn-dark add-to-cart mt-3">Додати в корзину</a>
-                                <p class="card-text mt-4">{{product.description}}</p>
+                                <p class="card-text mt-4" style="font-size: 1.1em; line-height: 1.5;">
+                                    {{ product.description | linebreaksbr }}
+                                </p>
                             </div>
                             <div class="product-characteristics mt-3">
                                 <table class="table table-bordered">
@@ -61,6 +63,9 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+            
                     
                     <!-- Увеличить изображение в модальном окне -->
                     <div class="modal fade" id="imageModal1" tabindex="-1" aria-labelledby="imageModal1Label" aria-hidden="true">

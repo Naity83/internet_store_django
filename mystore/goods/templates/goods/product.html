@@ -1,6 +1,10 @@
 {% extends "main/base.html" %}
 {% load static %}
 
+{% block modal_cart %}
+{% include "includes/cart_button.html" %}
+{% endblock  %}
+
 {% block content %}
 <div class="container">
     <div class="row mt-1">
@@ -22,7 +26,7 @@
                             <div class="content-section">
                                 <h5 class="product-title">{{product.name}}</h5>
                                 <p class="card-text">Ціна: <strong>{{product.sell_price}} грн</strong></p>
-                                <a href="#" class="btn btn-dark add-to-cart mt-3">Додати в корзину</a>
+                                <a href="{% url 'cart:cart_add' product.slug %}" class="btn btn-dark add-to-cart mt-3">Додати в корзину</a>
                                 <p class="card-text mt-4" style="font-size: 1.1em; line-height: 1.5;">
                                     {{ product.description | linebreaksbr }}
                                 </p>
